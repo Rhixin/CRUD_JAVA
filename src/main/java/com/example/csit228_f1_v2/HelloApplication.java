@@ -1,5 +1,6 @@
 package com.example.csit228_f1_v2;
 
+import com.example.csit228_f1_v2.CRUD.CRUD;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -23,12 +24,16 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
+    public CRUD crud = new CRUD();
+    public static Stage mainStage;
 
-    Label lbUsername;
+    TextField tfUsername;
+    PasswordField pfPassword;
     Label lbPassword;
 
     @Override
     public void start(Stage stage) throws IOException {
+
 //        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
 //        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
 //        stage.setTitle("Hello!");
@@ -45,12 +50,12 @@ public class HelloApplication extends Application {
         txtWelcome.setTextAlignment(TextAlignment.CENTER);
         grid.add(txtWelcome, 0, 0, 3, 1);
 
-        lbUsername = new Label("Username: ");
+        Label lbUsername = new Label("Username: ");
         lbUsername.setTextFill(Color.LIGHTSKYBLUE);
         lbUsername.setFont(Font.font(30));
         grid.add(lbUsername, 0, 1);
 
-        TextField tfUsername = new TextField();
+        tfUsername = new TextField();
         grid.add(tfUsername, 1, 1);
         tfUsername.setFont(Font.font(30));
 //        tfUsername.setMaxWidth(150);
@@ -60,7 +65,7 @@ public class HelloApplication extends Application {
         lbPassword.setTextFill(Color.CHARTREUSE);
         grid.add(lbPassword, 0, 2);
 
-        PasswordField pfPassword = new PasswordField();
+        pfPassword = new PasswordField();
         pfPassword.setFont(Font.font(30));
         grid.add(pfPassword, 1, 2);
 
@@ -114,21 +119,21 @@ public class HelloApplication extends Application {
         btnLogin.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                String username = lbUsername.getText();
-                String password = lbPassword.getText();
+                String username = tfUsername.getText();
+                String password = pfPassword.getText();
 
-
-
-
-
-                try {
-                    Parent p = FXMLLoader.load(getClass().getResource("homepage.fxml"));
-                    Scene s = new Scene(p);
-                    stage.setScene(s);
-                    stage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if(crud.validateLogIn(username,password)){
+                    try {
+                        Parent p = FXMLLoader.load(getClass().getResource("homepage.fxml"));
+                        Scene s = new Scene(p);
+                        stage.setScene(s);
+                        stage.show();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
+
+
             }
         });
 
@@ -152,6 +157,8 @@ public class HelloApplication extends Application {
         scene.setFill(Color.CORNFLOWERBLUE);
         stage.show();
         txtWelcome.minWidth(grid.getWidth());
+
+        mainStage = stage;
     }
 
     public static void main(String[] args) {

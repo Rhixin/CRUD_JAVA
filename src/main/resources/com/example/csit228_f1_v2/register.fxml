@@ -7,18 +7,18 @@
 
     <children>
         
-      <TextField id="fname" fx:id="fname" layoutX="31.0" layoutY="79.0" />
-      <Label layoutX="31.0" layoutY="56.0" text="First Name" />
-      <Label layoutX="209.0" layoutY="56.0" text="Last Name" />
-      <TextField id="lname" fx:id="lname" layoutX="209.0" layoutY="79.0" />
-      <Label layoutX="390.0" layoutY="56.0" text="Email" />
-      <TextField id="email" fx:id="email" layoutX="390.0" layoutY="79.0" />
-      <Label layoutX="31.0" layoutY="130.0" text="Username" />
-      <Label layoutX="31.0" layoutY="200.0" text="Password" />
-      <TextField id="username" fx:id="username" layoutX="31.0" layoutY="154.0" />
-      <TextField id="password" fx:id="password" layoutX="31.0" layoutY="226.0" />
-      <Button id="register_new_user_btn" layoutX="34.0" layoutY="304.0" mnemonicParsing="false" onAction="#insertNewUser" text="REGISTER" />
-      <Button fx:id="back" layoutX="34.0" layoutY="345.0" mnemonicParsing="false" text="Back" />
+      <TextField id="fname" fx:id="fname" layoutX="34.0" layoutY="66.0" />
+      <Label layoutX="34.0" layoutY="43.0" text="First Name" />
+      <Label layoutX="212.0" layoutY="43.0" text="Last Name" />
+      <TextField id="lname" fx:id="lname" layoutX="212.0" layoutY="66.0" />
+      <Label layoutX="393.0" layoutY="43.0" text="Email" />
+      <TextField id="email" fx:id="email" layoutX="393.0" layoutY="66.0" />
+      <Label layoutX="34.0" layoutY="117.0" text="Username" />
+      <Label layoutX="34.0" layoutY="187.0" text="Password" />
+      <TextField id="username" fx:id="username" layoutX="34.0" layoutY="141.0" />
+      <TextField id="password" fx:id="password" layoutX="34.0" layoutY="213.0" />
+      <Button id="register_new_user_btn" layoutX="37.0" layoutY="291.0" mnemonicParsing="false" onAction="#insertNewUser" text="REGISTER" />
+      <Button fx:id="back" layoutX="37.0" layoutY="332.0" mnemonicParsing="false" onAction="#goBackLogInPage" text="Back" />
     </children>
 
 </AnchorPane>

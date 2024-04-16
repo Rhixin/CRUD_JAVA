@@ -29,8 +29,6 @@ public class HelloController {
         AnchorPane p = (AnchorPane) pnLogin.getParent();
         p.getChildren().remove(pnLogin);
         p.getChildren().add(homeview);
-
-
     }
 
 
