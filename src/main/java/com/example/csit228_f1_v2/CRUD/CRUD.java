@@ -14,34 +14,31 @@ public class CRUD {
     }
 
     public static void createTable(){
-        Connection c = MySQLConnection.getConnection();
-        String query1 = "CREATE TABLE IF NOT EXISTS tblusers (" +
-                "userid INT PRIMARY KEY AUTO_INCREMENT," +
-                "fname VARCHAR(50) NOT NULL," +
-                "lname VARCHAR(50) NOT NULL," +
-                "email VARCHAR(100) NOT NULL," +
-                "username VARCHAR(100) NOT NULL," +
-                "password VARCHAR(200) NOT NULL)";
 
-        String query2 = "CREATE TABLE IF NOT EXISTS tblposts (" +
-                "postid INT PRIMARY KEY AUTO_INCREMENT," +
-                "userid INT(100) NOT NULL," +
-                "title VARCHAR(200) NOT NULL," +
-                "body VARCHAR(200) NOT NULL)";
+        try (Connection c = MySQLConnection.getConnection();){
 
-        try {
+            String query1 = "CREATE TABLE IF NOT EXISTS tblusers (" +
+                    "userid INT PRIMARY KEY AUTO_INCREMENT," +
+                    "fname VARCHAR(50) NOT NULL," +
+                    "lname VARCHAR(50) NOT NULL," +
+                    "email VARCHAR(100) NOT NULL," +
+                    "username VARCHAR(100) NOT NULL," +
+                    "password VARCHAR(200) NOT NULL)";
+
+            String query2 = "CREATE TABLE IF NOT EXISTS tblposts (" +
+                    "postid INT PRIMARY KEY AUTO_INCREMENT," +
+                    "userid INT(100) NOT NULL," +
+                    "title VARCHAR(200) NOT NULL," +
+                    "body VARCHAR(200) NOT NULL)";
+
+            c.setAutoCommit(false);
             Statement statement = c.createStatement();
             statement.execute(query1);
             statement.execute(query2);
+            c.commit();
             System.out.println("Table created suck-sis-fully");
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                c.close();
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
         }
     }
 
@@ -270,10 +267,14 @@ public class CRUD {
             PreparedStatement statement1 = c.prepareStatement("DELETE FROM tblusers WHERE userid=?");
             PreparedStatement statement2 = c.prepareStatement("DELETE FROM tblposts WHERE userid=?")) {
 
+            c.setAutoCommit(false);
+
             statement1.setInt(1,userid);
             statement2.setInt(1,userid);
             statement1.executeUpdate();
             statement2.executeUpdate();
+
+            c.commit();
 
         } catch (SQLException e) {
             throw new RuntimeException(e);

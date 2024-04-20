@@ -2,6 +2,7 @@ package com.example.csit228_f1_v2;
 
 import com.example.csit228_f1_v2.CRUD.CRUD;
 
+import com.example.csit228_f1_v2.CRUD.MySQLConnection;
 import com.example.csit228_f1_v2.HELPERS.Post;
 import com.example.csit228_f1_v2.HELPERS.SESSION;
 import com.example.csit228_f1_v2.HELPERS.User;
@@ -198,6 +199,7 @@ public class HomeController {
     }
 
     public void deleteMyPost(Post post){
+
         CRUD.deletePost(post);
         LoadEditMyPosts();
     }
