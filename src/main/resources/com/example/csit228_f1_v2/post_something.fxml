@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="328.0" prefWidth="407.0" styleClass="back_ground" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csit228_f1_v2.HomeController">
+
+    <VBox layoutX="20.0" layoutY="26.0" prefHeight="274.0" prefWidth="364.0" styleClass="right_box">
+        <children>
+            <Label fx:id="mind" prefHeight="35.0" prefWidth="404.0" styleClass="top_box" text="What's on your  mind?">
+                <VBox.margin>
+                    <Insets bottom="10.0" />
+                </VBox.margin>
+                <font>
+                    <Font name="SansSerif Regular" size="19.0" />
+                </font>
+            <padding>
+               <Insets bottom="6.0" left="6.0" right="6.0" top="6.0" />
+            </padding>
+            </Label>
+            <Label text="Title">
+                <VBox.margin>
+                    <Insets left="20.0" />
+                </VBox.margin>
+            </Label>
+            <TextField fx:id="post_title">
+                <VBox.margin>
+                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                </VBox.margin>
+            </TextField>
+            <Label text="Description">
+                <VBox.margin>
+                    <Insets left="20.0" />
+                </VBox.margin>
+            </Label>
+            <TextArea fx:id="post_description" prefHeight="147.0" prefWidth="339.0">
+                <VBox.margin>
+                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                </VBox.margin>
+            </TextArea>
+            <HBox alignment="TOP_RIGHT" prefHeight="15.0" prefWidth="379.0">
+                <children>
+                    <Button mnemonicParsing="false" onAction="#insertNewPost" prefHeight="26.0" prefWidth="76.0" styleClass="sign_up_btn" text="Post" textFill="WHITE">
+                        <HBox.margin>
+                            <Insets bottom="10.0" left="20.0" right="20.0" />
+                        </HBox.margin>
+                    </Button>
+                </children>
+            </HBox>
+        </children></VBox>
+
+</AnchorPane>

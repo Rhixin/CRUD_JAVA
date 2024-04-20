@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csit228_f1_v2.HomeController">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="400.0" prefWidth="145.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="60.0" prefWidth="145.0" text="facebook" textFill="#0866ff">
+                     <font>
+                        <Font name="SansSerif Bold" size="27.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" onAction="#LoadPosts" prefHeight="26.0" prefWidth="108.0" styleClass="log_in_btn" text="News Feed">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#LoadMyPosts" prefHeight="26.0" prefWidth="108.0" styleClass="log_in_btn" text="Post Something">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#LoadEditMyPosts" prefHeight="26.0" prefWidth="108.0" styleClass="log_in_btn" text="My Posts">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#myProfile" prefHeight="26.0" prefWidth="108.0" styleClass="log_in_btn" text="My Profile">
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button fx:id="log_out_btn" mnemonicParsing="false" onAction="#goBackLogInPage" prefHeight="26.0" prefWidth="108.0" styleClass="red" text="Log Out">
+                     <VBox.margin>
+                        <Insets top="145.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <styleClass>
+                  <String fx:value="top_box" />
+                  <String fx:value="box_shadow" />
+               </styleClass>
+            </VBox>
+            <ScrollPane fx:id="main_scroll_pane" layoutX="145.0" prefHeight="400.0" prefWidth="455.0" styleClass="back_ground">
+               <content>
+                  <VBox fx:id="main_vbox" alignment="TOP_CENTER" prefHeight="367.0" prefWidth="446.0" styleClass="back_ground">
+                     <children>
+
+
+
+                     </children>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </VBox>
+               </content></ScrollPane>
+         </children></Pane>
+   </children>
+</AnchorPane>

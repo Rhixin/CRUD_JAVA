@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="296.0" prefWidth="395.0" styleClass="back_ground" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csit228_f1_v2.HomeController">
+
+    <children>
+
+        <VBox alignment="TOP_CENTER" layoutX="21.0" layoutY="18.0" prefHeight="254.0" prefWidth="347.0" styleClass="right_box">
+            <children>
+                <TextField fx:id="mypost_title" alignment="CENTER" prefHeight="36.0" prefWidth="324.0" styleClass="top_box" text="Username">
+                    <font>
+                        <Font name="SansSerif Italic" size="18.0" />
+                    </font>
+                    <padding>
+                        <Insets left="10.0" top="5.0" />
+                    </padding>
+               <VBox.margin>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </VBox.margin></TextField>
+                <TextField fx:id="mypost_body" alignment="TOP_LEFT" prefHeight="114.0" prefWidth="324.0" styleClass="back_ground" text="Description dsada dssdf d">
+                    <VBox.margin>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                    </VBox.margin>
+                    <padding>
+                        <Insets left="10.0" top="10.0" />
+                    </padding></TextField>
+            <HBox alignment="CENTER_RIGHT" prefHeight="36.0" prefWidth="354.0">
+               <children>
+                  <Button fx:id="delete_post_btn" mnemonicParsing="false" prefHeight="26.0" prefWidth="74.0" styleClass="red" text="Delete" textFill="#eadbdb">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="update_post_btn" mnemonicParsing="false" prefHeight="26.0" prefWidth="97.0" styleClass="create_account_btn" text="Save changes">
+                     <HBox.margin>
+                        <Insets left="20.0" right="15.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            </children>
+        </VBox>
+
+    </children>
+
+
+</AnchorPane>

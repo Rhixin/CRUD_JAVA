@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csit228_f1_v2.Facebook">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0" styleClass="back_ground">
+         <children>
+            <HBox prefHeight="400.0" prefWidth="600.0">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="400.0" prefWidth="300.0">
+                     <children>
+                        <Label prefHeight="63.0" prefWidth="239.0" styleClass="facebook_title" text="facebook" textFill="#0866ff">
+                           <font>
+                              <Font name="SansSerif Bold" size="54.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" />
+                           </VBox.margin></Label>
+                        <Label prefHeight="16.0" prefWidth="242.0" styleClass="facebook_sub_title" text="Connect with friends and the world">
+                           <VBox.margin>
+                              <Insets left="15.0" />
+                           </VBox.margin></Label>
+                        <Label prefHeight="18.0" prefWidth="240.0" styleClass="facebook_sub_title" text="around you on Facebook">
+                           <VBox.margin>
+                              <Insets left="15.0" />
+                           </VBox.margin></Label>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="400.0" prefWidth="298.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="262.0" prefWidth="246.0" styleClass="right_box">
+                           <VBox.margin>
+                              <Insets bottom="5.0" left="20.0" right="30.0" top="20.0" />
+                           </VBox.margin>
+                           <children>
+                              <TextField id="log_uname" prefHeight="40.0" prefWidth="226.0" promptText="Username">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin></TextField>
+                              <TextField id="log_password" prefHeight="42.0" prefWidth="226.0" promptText="Password">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Button id="log_in_btn" mnemonicParsing="false" prefHeight="37.0" prefWidth="226.0" styleClass="log_in_btn" text="Log in">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Label styleClass="link" text="Forgot Password?">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                              <Label text="___________________________________________" textFill="#ae4242" />
+                              <Button id="create_account_btn" mnemonicParsing="false" prefHeight="36.0" prefWidth="122.0" styleClass="create_account_btn" text="Create Account">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
+                        </VBox>
+                        <Label graphicTextGap="1.0" lineSpacing="6.0" opacity="0.84" styleClass="bold_text" text="Create a Page for a celebrity, brand or business.">
+                           <font>
+                              <Font name="SansSerif Regular" size="9.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="5.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children></VBox>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

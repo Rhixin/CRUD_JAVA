@@ -1,0 +1,71 @@
+.right_box{
+-fx-background-color: #ffffff;
+-fx-effect: dropshadow( gaussian , rgba(0,0,0,0.35) , 10, 0.3 , 0 , 0 );
+
+}
+
+.create_account_btn, .sign_up_btn{
+    -fx-background-color: #36a420;
+    -fx-text-fill: #ffffff;
+}
+
+.create_account_btn:hover{
+    -fx-background-color: #2c6e1f;
+}
+
+.sign_up_btn:hover{
+    -fx-background-color: #2c6e1f;
+}
+
+.top_box{
+    -fx-background-color: #87CEEB;
+}
+
+.link{
+-fx-text-fill:#5b2c92
+}
+
+.log_in_btn, .back_btn{
+    -fx-background-color: #0866ff;
+    -fx-text-fill: #ffffff;
+}
+
+.log_in_btn:hover{
+    -fx-background-color: #002b70;
+}
+
+.back_btn:hover{
+-fx-background-color: #002b70;
+}
+
+.back_ground{
+    -fx-background-color: #f0f2f5;
+}
+
+.facebook_title{
+
+}
+
+.bold_text{
+-fx-font-weight: bold;
+}
+
+.red{
+    -fx-background-color: #FF7F7F;
+}
+
+.red:hover{
+    -fx-background-color: #FF0000;
+}
+
+.circle-container{
+    -fx-background-image: url('profile.jpg');
+    -fx-background-size: stretch;
+    -fx-background-position: center;
+}
+
+.box_shadow{
+-fx-effect: dropshadow( gaussian , rgba(1,1,1,1) , 10, 1 , 1 , 1 );
+}
+
+

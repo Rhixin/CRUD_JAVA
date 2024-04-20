@@ -121,16 +121,7 @@ public class HelloApplication extends Application {
                 String username = tfUsername.getText();
                 String password = pfPassword.getText();
 
-                if(CRUD.validateLogIn(username,password)){
-                    try {
-                        Parent p = FXMLLoader.load(getClass().getResource("homepage.fxml"));
-                        Scene s = new Scene(p);
-                        stage.setScene(s);
-                        stage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+
 
 
             }
@@ -139,7 +130,7 @@ public class HelloApplication extends Application {
         btnSignUp.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                System.out.println("Sign Up");
+
                 try {
                     Parent p = FXMLLoader.load(getClass().getResource("register.fxml"));
                     Scene s = new Scene(p);

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="237.0" prefWidth="395.0" styleClass="back_ground" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csit228_f1_v2.HomeController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="21.0" layoutY="18.0" prefHeight="202.0" prefWidth="354.0" styleClass="right_box">
+         <children>
+            <Label fx:id="Username" prefHeight="32.0" prefWidth="373.0" styleClass="top_box" text="Username">
+               <font>
+                  <Font name="SansSerif Regular" size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" top="5.0" />
+               </padding></Label>
+            <Label fx:id="Title" alignment="CENTER" contentDisplay="CENTER" prefHeight="33.0" prefWidth="342.0" text="Title">
+               <font>
+                  <Font name="System Italic" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin></Label>
+            <Label fx:id="Body" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="104.0" prefWidth="331.0" styleClass="back_ground" text="Description dsada dssdf d" textFill="#2522b9">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="10.0" top="10.0" />
+               </padding></Label>
+         </children>
+      </VBox>
+   </children>
+
+</AnchorPane>

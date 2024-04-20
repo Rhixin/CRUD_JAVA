@@ -1,24 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csit228_f1_v2.HomeController">
-
-    <children>
-        
-      <TextField id="fname" fx:id="fname" layoutX="34.0" layoutY="66.0" />
-      <Label layoutX="34.0" layoutY="43.0" text="First Name" />
-      <Label layoutX="212.0" layoutY="43.0" text="Last Name" />
-      <TextField id="lname" fx:id="lname" layoutX="212.0" layoutY="66.0" />
-      <Label layoutX="393.0" layoutY="43.0" text="Email" />
-      <TextField id="email" fx:id="email" layoutX="393.0" layoutY="66.0" />
-      <Label layoutX="34.0" layoutY="117.0" text="Username" />
-      <Label layoutX="34.0" layoutY="187.0" text="Password" />
-      <TextField id="username" fx:id="username" layoutX="34.0" layoutY="141.0" />
-      <TextField id="password" fx:id="password" layoutX="34.0" layoutY="213.0" />
-      <Button id="register_new_user_btn" layoutX="37.0" layoutY="291.0" mnemonicParsing="false" onAction="#insertNewUser" text="REGISTER" />
-      <Button fx:id="back" layoutX="37.0" layoutY="332.0" mnemonicParsing="false" onAction="#goBackLogInPage" text="Back" />
-    </children>
-
+<AnchorPane prefHeight="441.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csit228_f1_v2.HomeController">
+   <children>
+      <Pane prefHeight="441.0" prefWidth="308.0" styleClass="bg_register">
+         <children>
+            <VBox prefHeight="45.0" prefWidth="308.0" styleClass="top_box">
+               <children>
+                  <Label styleClass="bold_text" text="Sign Up">
+                     <VBox.margin>
+                        <Insets left="8.0" top="5.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="SansSerif Regular" size="30.0" />
+                     </font></Label>
+                  <Label text="It's quick and easy.">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="11.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="SansSerif Regular" size="10.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+            <VBox layoutX="-3.0" layoutY="56.0" prefHeight="393.0" prefWidth="316.0">
+               <children>
+                  <Label styleClass="bold_text" text="Profile Details">
+                     <VBox.margin>
+                        <Insets bottom="13.0" left="15.0" right="7.0" top="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font></Label>
+                  <HBox alignment="CENTER" prefHeight="34.0" prefWidth="302.0">
+                     <children>
+                        <TextField fx:id="fname" prefHeight="26.0" prefWidth="145.0" promptText="First Name">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin></TextField>
+                        <TextField fx:id="lname" prefHeight="26.0" prefWidth="129.0" promptText="Last Name">
+                           <HBox.margin>
+                              <Insets left="5.0" right="5.0" />
+                           </HBox.margin></TextField>
+                     </children>
+                  </HBox>
+                  <TextField fx:id="email" promptText="Email Address">
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" top="5.0" />
+                     </VBox.margin></TextField>
+                  <Label alignment="CENTER" contentDisplay="CENTER" styleClass="bold_text" text="Account Details">
+                     <VBox.margin>
+                        <Insets bottom="13.0" left="15.0" right="7.0" top="19.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="SansSerif Regular" size="14.0" />
+                     </font></Label>
+                  <Label text="Username">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="15.0" top="4.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="SansSerif Regular" size="11.0" />
+                     </font></Label>
+                  <TextField fx:id="username" promptText="Username">
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </VBox.margin></TextField>
+                  <Label text="Password">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="15.0" top="4.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="SansSerif Regular" size="11.0" />
+                     </font></Label>
+                  <TextField fx:id="password" promptText="Password">
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </VBox.margin></TextField>
+                  <Label text="Confirm Password">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="15.0" top="4.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="SansSerif Regular" size="11.0" />
+                     </font></Label>
+                  <TextField fx:id="cpassword" promptText="Password">
+                     <VBox.margin>
+                        <Insets left="15.0" right="15.0" />
+                     </VBox.margin></TextField>
+                  <HBox alignment="CENTER" prefHeight="58.0" prefWidth="302.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#goBackLogInPage" prefHeight="26.0" prefWidth="77.0" styleClass="back_btn" text="Back" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" onAction="#insertNewUser" prefHeight="26.0" prefWidth="81.0" styleClass="sign_up_btn" text="Sign Up" textFill="WHITE">
+                           <HBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children></VBox>
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>
