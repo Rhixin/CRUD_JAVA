@@ -2,32 +2,19 @@ package com.example.csit228_f1_v2;
 
 import com.example.csit228_f1_v2.CRUD.CRUD;
 
+import com.example.csit228_f1_v2.CRUD.MySQLConnection;
 import com.example.csit228_f1_v2.HELPERS.Post;
 import com.example.csit228_f1_v2.HELPERS.SESSION;
 import com.example.csit228_f1_v2.HELPERS.User;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
-import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.sql.ResultSet;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class HomeController {
 
@@ -43,8 +30,6 @@ public class HomeController {
     public TextField username;
     public TextField password;
     public TextField cpassword;
-    public Button back;
-
     public TextField post_title;
     public TextArea post_description;
     public VBox main_vbox;
@@ -58,6 +43,7 @@ public class HomeController {
 
     public Button update_post_btn;
     public Button delete_post_btn;
+
 
     public void onSliderChange() {
         double val = slSlider.getValue();
@@ -109,44 +95,62 @@ public class HomeController {
     }
 
     public void LoadPosts(){
-        ArrayList<Post> array_posts = new ArrayList<>();
+        int posts = 0;
+        ArrayList<Post> array_posts;
 
-        array_posts = CRUD.readPosts();
-        main_vbox.getChildren().clear();
+        try(Connection c = MySQLConnection.getConnection()) {
+            c.setAutoCommit(false);
 
-        for(Post p : array_posts){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("post.fxml"));
-            AnchorPane customComponent = null;
-            try {
-                customComponent = loader.load();
+            array_posts = CRUD.readPosts();
+            main_vbox.getChildren().clear();
+
+            for(Post p : array_posts){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("post.fxml"));
+                AnchorPane customComponent = loader.load();
 
                 Label username_label = (Label) customComponent.lookup("#Username");
                 Label title_label = (Label) customComponent.lookup("#Title");
                 Label body_label = (Label) customComponent.lookup("#Body");
 
                 User user = CRUD.getUser(p.userid);
-                //System.out.println(user.fname + " and " + user.lname);
-
                 username_label.setText(user.fname + " " + user.lname);
                 title_label.setText(p.title);
                 body_label.setText(p.body);
 
+                if(p.userid == SESSION.getInstance().getUser().userid){
+                    customComponent.getStylesheets().clear();
+                    customComponent.getStylesheets().add(Objects.requireNonNull(getClass().getResource("yours.css")).toExternalForm());
+                }
+
+                main_vbox.getChildren().add(customComponent);
+                posts++;
+            }
+
+            c.commit();
+            System.out.println("Transaction complete");
+        } catch (SQLException | IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        if(posts == 0){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("empty_news_feed.fxml"));
+            AnchorPane customComponent;
+
+            try {
+                customComponent = loader.load();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
-            if(p.userid == SESSION.getInstance().getUser().userid){
-                customComponent.getStylesheets().clear();
-                customComponent.getStylesheets().add(getClass().getResource("yours.css").toExternalForm());
-            }
-
-            // Add the loaded component to the VBox inside the ScrollPane
             main_vbox.getChildren().add(customComponent);
         }
+
+
     }
 
     public void LoadEditMyPosts(){
-        ArrayList<Post> array_posts = new ArrayList<>();
+        int posts = 0;
+        ArrayList<Post> array_posts;
 
         array_posts = CRUD.readPosts();
         main_vbox.getChildren().clear();
@@ -158,7 +162,7 @@ public class HomeController {
             }
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("update_post.fxml"));
-            AnchorPane customComponent = null;
+            AnchorPane customComponent;
             try {
                 customComponent = loader.load();
 
@@ -167,19 +171,9 @@ public class HomeController {
                 Button update_btn = (Button) customComponent.lookup("#update_post_btn");
                 Button delete_btn = (Button) customComponent.lookup("#delete_post_btn");
 
-                update_btn.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent actionEvent) {
-                        updateMyPost(title_field.getText(), body_field.getText(), p.postid);
-                    }
-                });
+                update_btn.setOnAction(actionEvent -> updateMyPost(title_field.getText(), body_field.getText(), p.postid));
 
-                delete_btn.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent actionEvent) {
-                        deleteMyPost(p);
-                    }
-                });
+                delete_btn.setOnAction(actionEvent -> deleteMyPost(p));
 
                 title_field.setText(p.title);
                 body_field.setText(p.body);
@@ -187,7 +181,20 @@ public class HomeController {
                 throw new RuntimeException(e);
             }
 
-            // Add the loaded component to the VBox inside the ScrollPane
+            main_vbox.getChildren().add(customComponent);
+            posts++;
+        }
+
+        if(posts == 0){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("no_own_post.fxml"));
+            AnchorPane customComponent;
+
+            try {
+                customComponent = loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
             main_vbox.getChildren().add(customComponent);
         }
     }
@@ -206,7 +213,7 @@ public class HomeController {
     public void LoadMyPosts(){
         main_vbox.getChildren().clear();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("post_something.fxml"));
-        AnchorPane customComponent = null;
+        AnchorPane customComponent;
 
         try {
             customComponent = loader.load();
@@ -219,23 +226,23 @@ public class HomeController {
         }
     }
 
-    public void updatedeleteMyPosts(){
-        main_vbox.getChildren().clear();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("update_post.fxml"));
-        AnchorPane customComponent = null;
-
-        try {
-            customComponent = loader.load();
-            main_vbox.getChildren().add(customComponent);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
+//    public void updatedeleteMyPosts(){
+//        main_vbox.getChildren().clear();
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("update_post.fxml"));
+//        AnchorPane customComponent = null;
+//
+//        try {
+//            customComponent = loader.load();
+//            main_vbox.getChildren().add(customComponent);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
     public void myProfile(){
         main_vbox.getChildren().clear();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("profile.fxml"));
-        AnchorPane customComponent = null;
+        AnchorPane customComponent;
 
         try {
             customComponent = loader.load();

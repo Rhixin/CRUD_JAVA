@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="106.0" prefWidth="395.0" styleClass="back_ground" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csit228_f1_v2.HomeController">
+    <children>
+        <VBox alignment="TOP_CENTER" layoutX="-3.0" layoutY="18.0" prefHeight="68.0" prefWidth="401.0" styleClass="right_box">
+            <children>
+                <Label fx:id="Body" alignment="TOP_CENTER" prefHeight="44.0" prefWidth="358.0" styleClass="back_ground" text="⚠ You have no own post yet? Create one at Add Post Page" textFill="#2522b9">
+                    <VBox.margin>
+                        <Insets top="10.0" />
+                    </VBox.margin>
+                    <padding>
+                        <Insets top="10.0" />
+                    </padding>
+               <font>
+                  <Font size="13.0" />
+               </font></Label>
+            </children>
+        </VBox>
+    </children>
+
+</AnchorPane>

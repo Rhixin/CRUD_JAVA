@@ -3,6 +3,7 @@
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
@@ -17,30 +18,68 @@
                         <Font name="SansSerif Bold" size="27.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" onAction="#LoadPosts" prefHeight="26.0" prefWidth="108.0" styleClass="log_in_btn" text="News Feed">
+                  <Button mnemonicParsing="false" onAction="#LoadPosts" prefHeight="46.0" prefWidth="68.0" styleClass="right_box">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
+
+                     <graphic>
+                        <ImageView fitHeight="37.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@home_icon.png" />
+                           </image></ImageView>
+                     </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#LoadMyPosts" prefHeight="26.0" prefWidth="108.0" styleClass="log_in_btn" text="Post Something">
+
+                  <Button mnemonicParsing="false" onAction="#LoadMyPosts" prefHeight="46.0" prefWidth="68.0" styleClass="right_box">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
+
+                     <graphic>
+                        <ImageView fitHeight="37.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@add_icon.png" />
+                           </image></ImageView>
+                     </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#LoadEditMyPosts" prefHeight="26.0" prefWidth="108.0" styleClass="log_in_btn" text="My Posts">
+                  <Button mnemonicParsing="false" onAction="#LoadEditMyPosts" prefHeight="26.0" prefWidth="68.0" styleClass="right_box">
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
+
+                     <graphic>
+                        <ImageView fitHeight="37.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@edit_icon.png" />
+                           </image></ImageView>
+                     </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#myProfile" prefHeight="26.0" prefWidth="108.0" styleClass="log_in_btn" text="My Profile">
+                  <Button mnemonicParsing="false" onAction="#myProfile" prefHeight="26.0" prefWidth="68.0" styleClass="right_box" >
                      <VBox.margin>
                         <Insets top="15.0" />
                      </VBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="37.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@profile_icon.png" />
+                           </image></ImageView>
+                     </graphic>
                   </Button>
-                  <Button fx:id="log_out_btn" mnemonicParsing="false" onAction="#goBackLogInPage" prefHeight="26.0" prefWidth="108.0" styleClass="red" text="Log Out">
+                  <Button fx:id="log_out_btn" mnemonicParsing="false" onAction="#goBackLogInPage" prefHeight="31.0" prefWidth="91.0" styleClass="right_box" text="Log out">
                      <VBox.margin>
-                        <Insets top="145.0" />
+                        <Insets top="50.0" />
                      </VBox.margin>
+
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@log_out.png" />
+                           </image></ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="SansSerif Regular" size="12.0" />
+                     </font>
                   </Button>
                </children>
                <styleClass>
@@ -51,14 +90,14 @@
             <ScrollPane fx:id="main_scroll_pane" layoutX="145.0" prefHeight="400.0" prefWidth="455.0" styleClass="back_ground">
                <content>
                   <VBox fx:id="main_vbox" alignment="TOP_CENTER" prefHeight="367.0" prefWidth="446.0" styleClass="back_ground">
-                     <children>
-
-
-
-                     </children>
                      <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                      </padding>
+
+                     <fx:include source="about_us.fxml"/>
+
+
+
                   </VBox>
                </content></ScrollPane>
          </children></Pane>

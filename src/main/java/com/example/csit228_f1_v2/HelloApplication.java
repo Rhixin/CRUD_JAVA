@@ -1,6 +1,5 @@
 package com.example.csit228_f1_v2;
 
-import com.example.csit228_f1_v2.CRUD.CRUD;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -10,10 +9,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
@@ -31,7 +28,7 @@ public class HelloApplication extends Application {
     Label lbPassword;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
 
 //        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login-view.fxml"));
 //        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
@@ -86,20 +83,14 @@ public class HelloApplication extends Application {
 //                }
 //            }
 //        });
-        btnShow.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                tmpPassword.setText(pfPassword.getText());
-                tmpPassword.setVisible(true);
-            }
+        btnShow.setOnMousePressed(mouseEvent -> {
+            tmpPassword.setText(pfPassword.getText());
+            tmpPassword.setVisible(true);
         });
 
-        EventHandler<MouseEvent> release = new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                tmpPassword.setVisible(false);
-                pfPassword.setText(tmpPassword.getText());
-            }
+        EventHandler<MouseEvent> release = mouseEvent -> {
+            tmpPassword.setVisible(false);
+            pfPassword.setText(tmpPassword.getText());
         };
 
         btnShow.setOnMouseReleased(release);
@@ -115,16 +106,9 @@ public class HelloApplication extends Application {
         grid.add(btnSignUp, 0, 4,3,2);
 
 
-        btnLogin.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                String username = tfUsername.getText();
-                String password = pfPassword.getText();
-
-
-
-
-            }
+        btnLogin.setOnAction(actionEvent -> {
+            String username = tfUsername.getText();
+            String password = pfPassword.getText();
         });
 
         btnSignUp.setOnAction(new EventHandler<ActionEvent>() {
@@ -151,7 +135,5 @@ public class HelloApplication extends Application {
         mainStage = stage;
     }
 
-    public static void main(String[] args) {
-        launch();
-    }
+
 }

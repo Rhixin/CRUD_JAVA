@@ -9,13 +9,13 @@ public class MySQLConnection {
     public static final String USERNAME = "root";
     public static final String PASSWORD = "";
 
-    static Connection getConnection(){
+    public static Connection getConnection(){
         Connection c = null;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             c = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            System.out.println("Database connection suck-sis");
+            System.out.println("Database connection successful");
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }

@@ -5,9 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="441.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csit228_f1_v2.HomeController">
+<AnchorPane prefHeight="395.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csit228_f1_v2.HomeController">
    <children>
-      <Pane prefHeight="441.0" prefWidth="308.0" styleClass="bg_register">
+      <Pane prefHeight="424.0" prefWidth="308.0" styleClass="bg_register">
          <children>
             <VBox prefHeight="45.0" prefWidth="308.0" styleClass="top_box">
                <children>
@@ -20,7 +20,7 @@
                      </font></Label>
                   <Label text="It's quick and easy.">
                      <VBox.margin>
-                        <Insets bottom="5.0" left="11.0" />
+                        <Insets bottom="5.0" left="11.0" top="4.0" />
                      </VBox.margin>
                      <font>
                         <Font name="SansSerif Regular" size="10.0" />

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="276.0" prefWidth="395.0" styleClass="back_ground" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.csit228_f1_v2.HomeController">
+    <children>
+        <VBox alignment="TOP_CENTER" layoutX="21.0" layoutY="18.0" prefHeight="242.0" prefWidth="354.0" styleClass="right_box">
+            <children>
+            <Label prefHeight="22.0" prefWidth="303.0" styleClass="bold_text" text="Welcome to Zhazted's" textFill="#5b2c92">
+               <VBox.margin>
+                  <Insets bottom="7.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="SansSerif Regular" size="19.0" />
+               </font></Label>
+            <Label text="facebook lite" textFill="#106cfc">
+               <font>
+                  <Font name="SansSerif Bold" size="51.0" />
+               </font>
+            </Label>
+            <Label prefHeight="18.0" prefWidth="303.0" text="&quot;Stay connected and share your world with my" textFill="#5b2c92">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font></Label>
+            <Label prefHeight="18.0" prefWidth="303.0" text="app's seamless newsfeed posting!&quot;" textFill="#5b2c92">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font></Label>
+            <Label prefHeight="15.0" prefWidth="303.0" text="Feel free to brwose my Mini Application." textFill="#5b2c92">
+               <font>
+                  <Font name="SansSerif Regular" size="12.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </Label>
+            </children>
+        </VBox>
+    </children>
+
+</AnchorPane>

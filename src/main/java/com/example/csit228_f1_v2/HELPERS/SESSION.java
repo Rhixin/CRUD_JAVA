@@ -20,7 +20,7 @@ public class SESSION {
     }
 
     public void setUser(User user) {
-        this.user = user;
+        SESSION.user = user;
     }
 
     public static void printData(){
