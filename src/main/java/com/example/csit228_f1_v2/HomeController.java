@@ -23,7 +23,6 @@ import java.io.IOException;
 
 public class HomeController {
 
-    public CRUD crud = new CRUD();
 
     public ToggleButton tbNight;
     public ProgressIndicator piProgress;
@@ -66,7 +65,7 @@ public class HomeController {
         String f_username = username.getText();
         String f_password = password.getText();
 
-        crud.insertRecord(f_fname,f_lname,f_email,f_username,f_password);
+        CRUD.insertRecord(f_fname,f_lname,f_email,f_username,f_password);
     }
 
     public void goBackLogInPage(){
@@ -164,7 +163,7 @@ public class HomeController {
                     String username = tfUsername.getText();
                     String password = pfPassword.getText();
 
-                    if(crud.validateLogIn(username,password)){
+                    if(CRUD.validateLogIn(username,password)){
                         try {
                             Parent p = FXMLLoader.load(getClass().getResource("homepage.fxml"));
                             Scene s = new Scene(p);

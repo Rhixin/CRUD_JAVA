@@ -24,7 +24,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HelloApplication extends Application {
-    public CRUD crud = new CRUD();
     public static Stage mainStage;
 
     TextField tfUsername;
@@ -122,7 +121,7 @@ public class HelloApplication extends Application {
                 String username = tfUsername.getText();
                 String password = pfPassword.getText();
 
-                if(crud.validateLogIn(username,password)){
+                if(CRUD.validateLogIn(username,password)){
                     try {
                         Parent p = FXMLLoader.load(getClass().getResource("homepage.fxml"));
                         Scene s = new Scene(p);

@@ -4,11 +4,11 @@ import java.sql.*;
 
 public class CRUD {
 
-    public CRUD (){
+    private CRUD (){
         super();
     }
 
-    public void createTable(){
+    public static void createTable(){
         Connection c = MySQLConnection.getConnection();
         String query = "CREATE TABLE IF NOT EXISTS tblusers (" +
                 "id INT PRIMARY KEY AUTO_INCREMENT," +
@@ -33,8 +33,10 @@ public class CRUD {
         }
     }
 
+
+
     //CREATE
-    public void insertRecord(String ffname, String llname, String eemail, String uusername, String ppassword){
+    public static void insertRecord(String ffname, String llname, String eemail, String uusername, String ppassword){
         try (Connection c = MySQLConnection.getConnection();
              PreparedStatement statement = c.prepareStatement("INSERT INTO tblusers (fname,lname,email,username,password) VALUES (?,?,?,?,?)");){
             String fname = ffname;
@@ -58,7 +60,7 @@ public class CRUD {
     }
 
     //READ
-    public String readData(){
+    public static String readData(){
         StringBuilder results;
 
         try(Connection c = MySQLConnection.getConnection();
@@ -90,7 +92,7 @@ public class CRUD {
         return results.toString();
     }
 
-    public boolean validateLogIn(String username, String password){
+    public static boolean validateLogIn(String username, String password){
         try(Connection c = MySQLConnection.getConnection();
             Statement statement = c.createStatement()) {
             String query = "SELECT * FROM tblusers";
@@ -113,7 +115,7 @@ public class CRUD {
     }
 
     //UPDATE
-    public void updateData(String column, int bounds, String new_data, String operation){
+    public static void updateData(String column, int bounds, String new_data, String operation){
         try(Connection c = MySQLConnection.getConnection();
             PreparedStatement statement = c.prepareStatement("UPDATE tblusers SET " + column + "=? WHERE id" + operation + "?")) {
 
@@ -128,7 +130,7 @@ public class CRUD {
         }
     }
 
-    public void updateData(String column, int bounds1, int bounds2, String new_data, String operation1, String operation2, String operator){
+    public static void updateData(String column, int bounds1, int bounds2, String new_data, String operation1, String operation2, String operator){
         try(Connection c = MySQLConnection.getConnection();
             PreparedStatement statement = c.prepareStatement("UPDATE tblusers SET " + column + "=? WHERE id" + operation1 + "? " + operator + " id" + operation2 + "?")) {
 
@@ -145,7 +147,7 @@ public class CRUD {
     }
 
     //DELETE
-    public void deleteData(int bounds1, int bounds2, String operator1, String operator2, String operation){
+    public static void deleteData(int bounds1, int bounds2, String operator1, String operator2, String operation){
         try(Connection c = MySQLConnection.getConnection();
             PreparedStatement statement = c.prepareStatement("DELETE FROM tblusers WHERE id" + operator1 +"? " + operation + " id" + operator2 + "?")) {
 
