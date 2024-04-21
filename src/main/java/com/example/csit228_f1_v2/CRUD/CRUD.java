@@ -130,7 +130,23 @@ public class CRUD {
             throw new RuntimeException(e);
         }
 
+        posts = reverseArrayList(posts);
+
         return posts;
+    }
+
+    private static ArrayList<Post> reverseArrayList(ArrayList<Post> alist)
+    {
+        // Arraylist for storing reversed elements
+        ArrayList<Post> revArrayList = new ArrayList<>();
+        for (int i = alist.size() - 1; i >= 0; i--) {
+
+            // Append the elements in reverse order
+            revArrayList.add(alist.get(i));
+        }
+
+        // Return the reversed arraylist
+        return revArrayList;
     }
 
     public static User getUser(int userid){
