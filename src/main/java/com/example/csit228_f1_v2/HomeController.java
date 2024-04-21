@@ -205,6 +205,7 @@ public class HomeController {
     }
 
     public void deleteMyPost(Post post){
+
         CRUD.deletePost(post);
         LoadEditMyPosts();
     }
